@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
 using System.Web.Mvc;
 using VendingMachine.Models;
 
@@ -28,6 +27,56 @@ namespace VendingMachine.Controllers
             {
                 return null;
             }
+        }
+
+        [HttpPost]
+        public ActionResult SendCoin(int coin)
+        {
+            if (coin == 1)
+            {
+                Coin coins = db.Coins.FirstOrDefault(c => c.Id == 1);
+                if (coins == null)
+                {
+                    return HttpNotFound();
+                }
+                coins.NumberOfCoins1 += 1;
+                db.SaveChanges();
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            if (coin == 2)
+            {
+                Coin coins = db.Coins.FirstOrDefault(c => c.Id == 1);
+                if (coins == null)
+                {
+                    return HttpNotFound();
+                }
+                coins.NumberOfCoins2 += 1;
+                db.SaveChanges();
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            if (coin == 5)
+            {
+                Coin coins = db.Coins.FirstOrDefault(c => c.Id == 1);
+                if (coins == null)
+                {
+                    return HttpNotFound();
+                }
+                coins.NumberOfCoins5 += 1;
+                db.SaveChanges();
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            if (coin == 10)
+            {
+                Coin coins = db.Coins.FirstOrDefault(c => c.Id == 1);
+                if (coins == null)
+                {
+                    return HttpNotFound();
+                }
+                coins.NumberOfCoins10 += 1;
+                db.SaveChanges();
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
     }
 }

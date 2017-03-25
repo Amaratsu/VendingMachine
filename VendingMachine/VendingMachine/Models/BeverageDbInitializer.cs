@@ -52,6 +52,15 @@ namespace VendingMachine.Models
                 ImageMimeType = "png",
                 Amount = 0
             });
+
+            db.Coins.Add(new Coin
+            {
+                Id = 1,
+                NumberOfCoins1 = 15,
+                NumberOfCoins2 = 7,
+                NumberOfCoins5 = 8,
+                NumberOfCoins10 = 4
+            });
             base.Seed(db);
         }
     }

@@ -3,6 +3,14 @@ var count = 0;
 $(".coin").click(function () {
     count += +this.innerHTML;
     totalAmount.innerHTML = count;
+    $.ajax({
+        type: "POST",
+        url: "/Home/SendCoin",
+        data: { "coin": +this.innerHTML },
+        success: function (data) {
+            console.log(data);
+        }
+    });
     var divElem = document.getElementById("divElem");
     var elementsH4 = divElem.getElementsByTagName("h4");
     var elementButton = divElem.getElementsByTagName("button");

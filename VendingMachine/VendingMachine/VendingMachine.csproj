@@ -152,13 +152,10 @@
     <Compile Include="Models\Beverage.cs" />
     <Compile Include="Models\BeverageDbInitializer.cs" />
     <Compile Include="Models\BeverageContext.cs" />
+    <Compile Include="Models\Coin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Beverage.mdf" />
-    <Content Include="App_Data\Beverage_log.ldf">
-      <DependentUpon>Beverage.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -214,7 +211,9 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
