@@ -5,17 +5,17 @@
 }
 
 @if (Model != null)
-{<div class="row"  id="divElem">
+{<div class="row"  id="divElems">
      <h1 class="text-center">Внесите сумму и выберите напиток:</h1>
      @foreach (var item in Model)
      {
          <div class="col-md-4">
              <h3 class="text-center">@item.Name</h3>
-                <button disabled="" style="display: block; margin: 0 auto" class="text-center btn btn-warning">
-                    <img style="display: block; margin: 0 auto" class="text-center" width="250" height="250" src="@Url.Action("GetImage", "Home", new {item.Id})" />
-                </button>           
-             <h4 class="text-center" name="Price">Стоимость руб: @item.Price</h4>
-             <h5 class="text-center" name="Amount">Осталось штук: @item.Amount</h5>
+             <button disabled="" style="display: block; margin: 0 auto" class="text-center btn btn-warning sendBeverage" id="@item.Id" value="@item.Price">          
+                 <img style="display: block; margin: 0 auto" class="text-center" width="250" height="250" src="@Url.Action("GetImage", "Home", new {item.Id})"/>
+             </button>           
+             <h4 class="text-center">Стоимость руб: @item.Price</h4>
+             <h5 class="text-center" id="@item.Id">Осталось штук: @item.Amount</h5>
          </div>
      }
  </div>
@@ -23,7 +23,7 @@
 
 <div class="row text-center">
     <h2 class="text-center">Внесенная сумма:</h2>
-    <h2 class="text-center" id="Counter">0</h2>
+    <h2 class="text-center" id="counter">0</h2>
     <div class="col-md-3">
         <button class="btn btn-info coin">1</button>
     </div>
@@ -36,6 +36,10 @@
     <div class="col-md-3">
         <button disabled="" class="btn btn-info coin">10</button>
     </div>
+</div>
+
+<div class="row text-center">
+    <button disabled="" id="surrender">Сдача/Возврат денег</button>
 </div>
 
 @section Scripts {

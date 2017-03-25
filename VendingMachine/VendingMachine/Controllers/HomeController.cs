@@ -78,5 +78,17 @@ namespace VendingMachine.Controllers
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
+
+        public ActionResult SendBeverage(int id)
+        {
+            if (id > 0)
+            {
+                Beverage beverage = db.Beverages.Find(id);
+                if (beverage != null) beverage.Amount -= 1;
+                db.SaveChanges();
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        }
     }
 }

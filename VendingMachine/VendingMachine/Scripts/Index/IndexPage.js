@@ -1,5 +1,6 @@
-﻿var totalAmount = document.getElementById("Counter");
+﻿var totalAmount = document.getElementById("counter");
 var count = 0;
+
 $(".coin").click(function () {
     count += +this.innerHTML;
     totalAmount.innerHTML = count;
@@ -11,10 +12,38 @@ $(".coin").click(function () {
             console.log(data);
         }
     });
-    var divElem = document.getElementById("divElem");
-    var elementsH4 = divElem.getElementsByTagName("h4");
-    var elementButton = divElem.getElementsByTagName("button");
-    var elementsH5 = divElem.getElementsByTagName("h5");
+    validateBeverage();
+});
+
+$(".sendBeverage").click(function () {
+    var divElems = document.getElementById("divElems");
+    var elementsH5 = divElems.getElementsByTagName("h5");
+    count -= this.value;
+    totalAmount.innerHTML = count;
+    $.ajax({
+        type: "POST",
+        url: "/Home/SendBeverage",
+        data: { "id": this.id },
+        success: function (data) {
+            console.log(data);
+        }
+    });
+
+    for (var i = 0; i < elementsH5.length; i++) {
+        if (+elementsH5[i].id === +this.id) {
+            var x = +elementsH5[i].innerHTML.replace(/\D+/g, "");
+            elementsH5[i].innerHTML = "Осталось штук: " + --x;
+            validateBeverage();
+        }
+    }
+    
+});
+
+var validateBeverage = function () {
+    var divElems = document.getElementById("divElems");
+    var elementsH4 = divElems.getElementsByTagName("h4");
+    var elementButton = divElems.getElementsByTagName("button");
+    var elementsH5 = divElems.getElementsByTagName("h5");
 
     for (var i = 0; i < elementsH4.length; i++) {
         var elementH4 = +elementsH4[i].innerHTML.replace(/\D+/g, "");
@@ -30,4 +59,4 @@ $(".coin").click(function () {
             }
         }
     }
-}); 
+}
