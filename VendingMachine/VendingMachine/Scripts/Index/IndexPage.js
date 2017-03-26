@@ -15,6 +15,20 @@ $(".coin").click(function () {
     validateBeverage();
 });
 
+$("#surrender").click(function() {
+    $.ajax({
+        type: "POST",
+        url: "/Home/GetSurrender",
+        data: { "surrender": count },
+        success: function (data) {
+            console.log(data);
+            count = 0;
+            totalAmount.innerHTML = count;
+            validateBeverage();
+        }
+    });
+});
+
 $(".sendBeverage").click(function () {
     var divElems = document.getElementById("divElems");
     var elementsH5 = divElems.getElementsByTagName("h5");
@@ -44,6 +58,11 @@ var validateBeverage = function () {
     var elementsH4 = divElems.getElementsByTagName("h4");
     var elementButton = divElems.getElementsByTagName("button");
     var elementsH5 = divElems.getElementsByTagName("h5");
+    if (count > 0) {
+        $("#surrender").removeClass("hidden");
+    } else if (count <= 0) {
+        $("#surrender").addClass("hidden");
+    }
 
     for (var i = 0; i < elementsH4.length; i++) {
         var elementH4 = +elementsH4[i].innerHTML.replace(/\D+/g, "");
