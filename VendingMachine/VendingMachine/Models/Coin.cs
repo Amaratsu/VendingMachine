@@ -1,41 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace VendingMachine.Models
 {
     public class Coin
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
+
+        [Required]
+        [Range(0, Int32.MaxValue)]
         public int NumberOfCoins1 { get; set; }
+
+        [Required]
+        [Range(0, Int32.MaxValue)]
         public int NumberOfCoins2 { get; set; }
+
+        [Required]
+        [Range(0, Int32.MaxValue)]
         public int NumberOfCoins5 { get; set; }
+
+        [Required]
+        [Range(0, Int32.MaxValue)]
         public int NumberOfCoins10 { get; set; }
-
-        public int TheSumOfCoins1()
-        {
-            return NumberOfCoins1 * 1;
-        }
-        public int TheSumOfCoins2()
-        {
-            return NumberOfCoins2 * 2;
-        }
-        public int TheSumOfCoins5()
-        {
-            return NumberOfCoins5 * 5;
-        }
-        public int TheSumOfCoins10()
-        {
-            return NumberOfCoins10 * 10;
-        }
-
-        public int TotalAmountOfCoins()
-        {
-            return (NumberOfCoins1 * 1)
-                   + (NumberOfCoins2 * 2)
-                   + (NumberOfCoins5 * 5)
-                   + (NumberOfCoins10 * 10);
-        }
     }
 }

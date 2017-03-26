@@ -1,0 +1,46 @@
+﻿@model IEnumerable<VendingMachine.Models.Coin>
+
+@{
+    ViewBag.Title = "CoinsIndex";
+}
+
+<h2 class="text-center">Список монет</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Кол-во монет наминалом 1 руб
+        </th>
+        <th>
+            Кол-во монет наминалом 2 руб
+        </th>
+        <th>
+            Кол-во монет наминалом 5 руб
+        </th>
+        <th>
+            Кол-во монет наминалом 10 руб
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfCoins1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfCoins2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfCoins5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfCoins10)
+        </td>
+        <td>
+            @Html.ActionLink("Отредактировать монеты", "EditCoin", new { id=item.Id }, new { @class = "btn btn-warning btn-xs" } )
+        </td>
+    </tr>
+}
+
+</table>

@@ -11,7 +11,7 @@ namespace VendingMachine.Controllers
     public class AdminController : Controller
     {
         private BeverageContext db = new BeverageContext();
-        // GET: Admin
+        // Beverages
         [HttpGet]
         public ViewResult BeveragesIndex()
         {
@@ -88,6 +88,40 @@ namespace VendingMachine.Controllers
             db.Beverages.Remove(beverage);
             db.SaveChanges();
             return RedirectToAction("BeveragesIndex");
+        }
+
+        //Coins
+        [HttpGet]
+        public ViewResult CoinsIndex()
+        {
+            return View(db.Coins);
+        }
+
+        [HttpGet]
+        public ViewResult EditCoin(int id)
+        {
+            Coin coin = db.Coins
+                .FirstOrDefault(c => c.Id == id);
+            return View(coin);
+        }
+
+        [HttpPost]
+        public ActionResult EditCoin(Coin coin)
+        {
+            if (ModelState.IsValid)
+            {
+                if (coin.Id <= 0)
+                {
+                    return HttpNotFound();
+                }
+                db.Entry(coin).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("CoinsIndex");
+            }
+            else
+            {
+                return View(coin);
+            }
         }
     }
 }
