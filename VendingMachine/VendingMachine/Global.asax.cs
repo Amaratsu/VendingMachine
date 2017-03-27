@@ -15,8 +15,7 @@ namespace VendingMachine
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new BeverageDbInitializer(HostingEnvironment.MapPath("~/Content/Images")));
-
+            Database.SetInitializer(new BeverageDbInitializer(HostingEnvironment.MapPath("~/Content/Images")));     
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

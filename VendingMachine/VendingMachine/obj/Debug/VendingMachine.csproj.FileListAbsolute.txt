@@ -90,4 +90,3 @@ D:\Projects\VendingMachine\VendingMachine\VendingMachine\bin\Microsoft.AI.Window
 D:\Projects\VendingMachine\VendingMachine\VendingMachine\bin\Microsoft.AI.Web.xml
 D:\Projects\VendingMachine\VendingMachine\VendingMachine\obj\Debug\VendingMachine.dll
 D:\Projects\VendingMachine\VendingMachine\VendingMachine\obj\Debug\VendingMachine.pdb
-D:\Projects\VendingMachine\VendingMachine\VendingMachine\obj\Debug\VendingMachine.csprojResolveAssemblyReference.cache

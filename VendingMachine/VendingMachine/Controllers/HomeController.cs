@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using VendingMachine.Models;
-using VendingMachine.Services;
 
 namespace VendingMachine.Controllers
 {
@@ -13,7 +11,7 @@ namespace VendingMachine.Controllers
         BeverageContext db = new BeverageContext();
         public ActionResult Index()
         {
-            Coin coin = db.Coins.FirstOrDefault(c=>c.Id == 1);
+            var coin = db.Coins.FirstOrDefault(c=>c.Id == 1);
             if (coin != null)
             {
                 ViewBag.StatusButton1 = coin.ButtonStatus1;
@@ -114,17 +112,17 @@ namespace VendingMachine.Controllers
                     coins.NumberOfCoins10 -= 1;
                     surrender -= 10;
                 }
-                else if (coins.NumberOfCoins5 != 0 && surrender >= 5)
+                else if (coins != null && (coins.NumberOfCoins5 != 0 && surrender >= 5))
                 {
                     coins.NumberOfCoins5 -= 1;
                     surrender -= 5;
                 }
-                else if (coins.NumberOfCoins2 != 0 && surrender >= 2)
+                else if (coins != null && (coins.NumberOfCoins2 != 0 && surrender >= 2))
                 {
                     coins.NumberOfCoins2 -= 1;
                     surrender -= 2;
                 }
-                else if (coins.NumberOfCoins1 != 0 && surrender >= 1 )
+                else if (coins != null && (coins.NumberOfCoins1 != 0 && surrender >= 1) )
                 {
                     coins.NumberOfCoins1 -= 1;
                     surrender -= 1;

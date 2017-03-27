@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VendingMachine.Models;
-using VendingMachine.Services;
 
 namespace VendingMachine.Controllers
 {
-    //[My]
+    [Authorize]
     public class AdminController : Controller
     {
         private BeverageContext db = new BeverageContext();

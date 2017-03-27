@@ -1,0 +1,41 @@
+﻿@model VendingMachine.Models.LoginViewModel
+@{
+    ViewBag.Title = "Авторизация";
+}
+
+<h2 class="text-center">Авторизация</h2>
+
+
+@if (ViewBag.Error != null)
+{
+    <p class="bg-danger">@Html.Raw(ViewBag.Error)</p>
+}
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label for="UserName">Имя пользователя</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBox("UserName", null, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.UserName)
+        </div>
+
+        <div class="form-group">
+            <label for="Password">Пароль пользователя</label>
+        </div>
+        <div class="form-group">
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <p>
+            <input class="btn btn-success" type="submit" value="Авторизация" />
+        </p>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

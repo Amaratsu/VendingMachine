@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.IO;
-using System.Linq;
-using System.Web;
 
 namespace VendingMachine.Models
 {
@@ -11,18 +7,18 @@ namespace VendingMachine.Models
     {
         private string _pathToFolderWithImages;
 
-        public BeverageDbInitializer(string pathToFolderWithImages) : base()
+        public BeverageDbInitializer(string pathToFolderWithImages)
         {
             _pathToFolderWithImages = pathToFolderWithImages;
         }
 
         byte[] GetFile(string s)
         {
-            System.IO.FileStream fs = System.IO.File.OpenRead(s);
+            FileStream fs = File.OpenRead(s);
             byte[] data = new byte[fs.Length];
             int br = fs.Read(data, 0, data.Length);
             if (br != fs.Length)
-                throw new System.IO.IOException(s);
+                throw new IOException(s);
             return data;
         }
 
