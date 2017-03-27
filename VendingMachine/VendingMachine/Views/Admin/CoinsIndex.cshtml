@@ -9,16 +9,28 @@
 <table class="table">
     <tr>
         <th>
-            Кол-во монет наминалом 1 руб
+            Кол-во монет 1 руб
         </th>
         <th>
-            Кол-во монет наминалом 2 руб
+            Кол-во монет 2 руб
         </th>
         <th>
-            Кол-во монет наминалом 5 руб
+            Кол-во монет 5 руб
         </th>
         <th>
-            Кол-во монет наминалом 10 руб
+            Кол-во монет 10 руб
+        </th>
+        <th>
+            Статус кнопки 1 руб
+        </th>
+        <th>
+            Статус кнопки 2 руб
+        </th>
+        <th>
+            Статус кнопки 5 руб
+        </th>
+        <th>
+            Статус кнопки 10 руб
         </th>
         <th></th>
     </tr>
@@ -37,6 +49,54 @@
         <td>
             @Html.DisplayFor(modelItem => item.NumberOfCoins10)
         </td>
+        @if (item.ButtonStatus1 == null)
+        {
+            <th>
+                Активна
+            </th>
+        }
+        else if (item.ButtonStatus1 == "disabled")
+        {
+            <th>
+                Не активна
+            </th>
+        }
+        @if (item.ButtonStatus2 == null)
+        {
+            <th>
+                Активна
+            </th>
+        }
+        else if (item.ButtonStatus2 == "disabled")
+        {
+            <th>
+                Не активна
+            </th>
+        }     
+        @if (item.ButtonStatus5 == null)
+        {
+            <th>
+                Активна
+            </th>
+        }
+        else if (item.ButtonStatus5 == "disabled")
+        {
+            <th>
+                Не активна
+            </th>
+        }
+        @if (item.ButtonStatus10 == null)
+        {
+            <th>
+                Активна
+            </th>
+        }
+        else if (item.ButtonStatus10 == "disabled")
+        {
+            <th>
+                Не активна
+            </th>
+        }
         <td>
             @Html.ActionLink("Отредактировать монеты", "EditCoin", new { id=item.Id }, new { @class = "btn btn-warning btn-xs" } )
         </td>

@@ -5,9 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VendingMachine.Models;
+using VendingMachine.Services;
 
 namespace VendingMachine.Controllers
 {
+    //[My]
     public class AdminController : Controller
     {
         private BeverageContext db = new BeverageContext();

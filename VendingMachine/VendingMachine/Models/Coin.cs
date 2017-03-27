@@ -27,5 +27,13 @@ namespace VendingMachine.Models
         [Required]
         [Range(0, Int32.MaxValue)]
         public int NumberOfCoins10 { get; set; }
+
+        public string ButtonStatus1 { get; set; }
+
+        public string ButtonStatus2 { get; set; }
+
+        public string ButtonStatus5 { get; set; }
+
+        public string ButtonStatus10 { get; set; }
     }
 }

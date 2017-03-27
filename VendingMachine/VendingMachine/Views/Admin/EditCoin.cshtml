@@ -15,7 +15,7 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="NumberOfCoins1">Количество монет номиналом 1 руб</label>
+            <label class="control-label col-md-2" for="NumberOfCoins1">Количество монет 1 руб</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumberOfCoins1, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NumberOfCoins1, "", new { @class = "text-danger" })
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="NumberOfCoins2">Количество монет номиналом 2 руб</label>
+            <label class="control-label col-md-2" for="NumberOfCoins2">Количество монет 2 руб</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumberOfCoins2, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NumberOfCoins2, "", new { @class = "text-danger" })
@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="NumberOfCoins5">Количество монет номиналом 5 руб</label>
+            <label class="control-label col-md-2" for="NumberOfCoins5">Количество монет 5 руб</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumberOfCoins5, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NumberOfCoins5, "", new { @class = "text-danger" })
@@ -39,21 +39,58 @@
         </div>
 
         <div class="form-group">
-            <label class="control-label col-md-2" for="NumberOfCoins10">Количество монет номиналом 10 руб</label>
+            <label class="control-label col-md-2" for="NumberOfCoins10">Количество монет 10 руб</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumberOfCoins10, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NumberOfCoins10, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2" for="ButtonStatus1">Статус монет 1 руб</label>
+            <div class="col-md-10">
+                <select class="form-control" id="ButtonStatus1" name="ButtonStatus1">
+                    <option value="">Активная</option>
+                    <option value="disabled">Не активная</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="ButtonStatus2">Статус монет 2 руб</label>
+            <div class="col-md-10">
+                <select class="form-control" id="ButtonStatus2" name="ButtonStatus2">
+                    <option value="">Активная</option>
+                    <option value="disabled">Не активная</option>
+                </select>
+            </div>     
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="ButtonStatus5">Статус монет 5 руб</label>
+            <div class="col-md-10">
+                <select class="form-control" id="ButtonStatus5" name="ButtonStatus5">
+                    <option value="">Активная</option>
+                    <option value="disabled">Не активная</option>
+                </select>
+            </div>     
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="ButtonStatus10">Статус монет 10 руб</label>
+            <div class="col-md-10">
+                <select class="form-control" id="ButtonStatus10" name="ButtonStatus10">
+                    <option value="">Активная</option>
+                    <option value="disabled">Не активная</option>
+                </select>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Сохранить" class="btn btn-success" />
-            </div>
+                @Html.ActionLink("Вернуться к списку монет", "CoinsIndex", null, new { @class = "btn btn-primary" })
+            </div> 
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Вернуться к списку монет", "CoinsIndex", null, new { @class = "btn btn-primary" } )
-</div>
+

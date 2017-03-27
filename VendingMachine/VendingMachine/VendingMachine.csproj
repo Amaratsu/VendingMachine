@@ -155,6 +155,7 @@
     <Compile Include="Models\BeverageContext.cs" />
     <Compile Include="Models\Coin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MyAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

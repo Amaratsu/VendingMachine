@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using VendingMachine.Models;
+using VendingMachine.Services;
 
 namespace VendingMachine.Controllers
 {
@@ -12,6 +13,14 @@ namespace VendingMachine.Controllers
         BeverageContext db = new BeverageContext();
         public ActionResult Index()
         {
+            Coin coin = db.Coins.FirstOrDefault(c=>c.Id == 1);
+            if (coin != null)
+            {
+                ViewBag.StatusButton1 = coin.ButtonStatus1;
+                ViewBag.StatusButton2 = coin.ButtonStatus2;
+                ViewBag.StatusButton5 = coin.ButtonStatus5;
+                ViewBag.StatusButton10 = coin.ButtonStatus10;
+            }
             IEnumerable<Beverage> beverages = db.Beverages;
             return View(beverages);
         }
